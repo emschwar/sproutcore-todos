@@ -37,7 +37,7 @@ Todos.mainPage = SC.Page.design({
       hasHorizontalScroller: NO,
       layout: { top: 36, bottom: 32, left: 0, right: 0 },
       backgroundColor: 'white',
-      valueBinding: "Todos.taskController.arrangedObjects"
+      contentBinding: "Todos.taskController.content"
     }),
 
     bottomView: SC.ToolbarView.design({

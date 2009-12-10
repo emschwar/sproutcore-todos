@@ -8,9 +8,9 @@
 
   (Document Your Controller Here)
 
-  @extends SC.CollectionController
+  @extends SC.ArrayController
 */
-Todos.taskController = SC.CollectionController.create(
+Todos.taskController = SC.ArrayController.create(
   SC.CollectionViewDelegate,
 /** @scope Todos.taskController.prototype */ {
   addTask: function() {
