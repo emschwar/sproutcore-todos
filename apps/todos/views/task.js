@@ -10,22 +10,23 @@
 
   @extends SC.View
 */
-Todos.TaskView = SC.View.extend(
-/** @scope Todos.TableView.prototype */ {
-  isDone: false,
-  description: "a task description",
+Todos.Table = SC.ListView.extend({
+  tagName: 'table',
+  exampleView: SC.View.extend(
+   /** @scope Todos.TableView.prototype */ {
+     contentDisplayProperties: 'isDone description'.w(),
 
-  displayProperties: 'isDone description'.w(),
+     render: function(context, firstTime) {
+       var content = this.get('content');
+       var attributes = content.get('attributes');
 
-  render: function(context, firstTime) {
-    var isDone = this.get('isDone');
-    var description = this.get('description');
+       context = context.begin('tr').addClass('task-row');
+       for (attr in attributes) {
+         context = context.begin('td').addClass(attr).push(attributes[attr]).end();
+       }
+       context.end();
 
-    context = context.begin('tr').addClass('task-row');
-    context = context.begin('td').addClass('isDone').push(isDone).end();
-    context = context.begin('td').addClass('description').push(description).end();
-    context.end();
-
-    sc_super();
-  }
+       sc_super();
+     }
+   })
 });

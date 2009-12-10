@@ -38,9 +38,7 @@ Todos.mainPage = SC.Page.design({
       layout: { top: 36, bojttom: 32, left: 0, right: 0 },
       backgroundColor: 'white',
       childViews: 'tableView'.w(),
-      tableView: SC.ListView.design({
-        tagName: "table",
-        exampleView: Todos.TaskView,
+      tableView: Todos.Table.design({
         contentBinding: "Todos.taskController.content"
       })
     }),
