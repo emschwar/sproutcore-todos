@@ -12,16 +12,20 @@
 */
 Todos.TaskView = SC.View.extend(
 /** @scope Todos.TableView.prototype */ {
-  childViews: "isDone description".w(),
-  tagName: "tr",
-  layout: { height: 36, left: 0, right: 0 },
+  isDone: false,
+  description: "a task description",
 
-  isDone: SC.LabelView.design({
-    tagName: "td",
-    valueBinding: ".parentView*content.isDone"
-  }),
-  description: SC.LabelView.design({
-    tagName: "td",
-    valueBinding: ".parentView*content.description"
-  })
+  displayProperties: 'isDone description'.w(),
+
+  render: function(context, firstTime) {
+    var isDone = this.get('isDone');
+    var description = this.get('description');
+
+    context = context.begin('tr').addClass('task-row');
+    context = context.begin('td').addClass('isDone').push(isDone).end();
+    context = context.begin('td').addClass('description').push(description).end();
+    context.end();
+
+    sc_super();
+  }
 });

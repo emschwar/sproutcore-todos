@@ -33,14 +33,18 @@ Todos.mainPage = SC.Page.design({
       })
     }),
 
-    middleView: SC.ListView.design({
-      hasHorizontalScroller: NO,
-      layout: { top: 36, bottom: 32, left: 0, right: 0 },
+    middleView: SC.View.design({
+      classNames: "middleView",
+      layout: { top: 36, bojttom: 32, left: 0, right: 0 },
       backgroundColor: 'white',
-      tagName: "table",
-      exampleView: Todos.TaskView,
-      contentBinding: "Todos.taskController.content"
+      childViews: 'tableView'.w(),
+      tableView: SC.ListView.design({
+        tagName: "table",
+        exampleView: Todos.TaskView,
+        contentBinding: "Todos.taskController.content"
+      })
     }),
+
 
     bottomView: SC.ToolbarView.design({
       layout: { bottom: 0, left: 0, right: 0, height: 32 },
