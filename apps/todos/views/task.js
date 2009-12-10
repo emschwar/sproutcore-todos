@@ -14,6 +14,7 @@ Todos.TaskView = SC.View.extend(
 /** @scope Todos.TableView.prototype */ {
   childViews: "isDone description".w(),
   tagName: "tr",
+  layout: { height: 36, left: 0, right: 0 },
 
   isDone: SC.LabelView.design({
     tagName: "td",
